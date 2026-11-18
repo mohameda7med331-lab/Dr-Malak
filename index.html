@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Malak Motaz | Dental Clinic</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-dark: #0369a1;
+            --secondary: #38bdf8;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --white: #ffffff;
+            --shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Header & Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 8%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        .logo span.badge {
+            font-size: 0.75rem;
+            background: var(--secondary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(2, 132, 199, 0.3);
+        }
+
+        /* Hero Section with Dental Background Image */
+        .hero {
+            padding: 13rem 8% 8rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(2, 132, 199, 0.75)), 
+                        url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: white;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 650px;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 span {
+            color: var(--secondary);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: #e2e8f0;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-badge-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 1.5rem;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 8%;
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--light);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            transition: 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            background: white;
+            box-shadow: var(--shadow);
+            border-color: var(--secondary);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* About Doctor */
+        .about {
+            padding: 6rem 8%;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            font-family: 'Cairo', 'Poppins', sans-serif;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .feature-item i {
+            color: var(--accent);
+        }
+
+        .about-img {
+            flex: 1;
+            background: url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80') no-repeat center center/cover;
+            height: 400px;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Booking Section */
+        .booking {
+            padding: 6rem 8%;
+            background: white;
+        }
+
+        .booking-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f0f9ff;
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid #bae6fd;
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group.full {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 0.9rem 1rem;
+            border-radius: 12px;
+            border: 1px solid #cbd5e1;
+            background: white;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 8%;
+            background: #f8fafc;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            position: relative;
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card p {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .patient-info {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 8% 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-logo i {
+            color: var(--secondary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 10rem;
+            }
+            .hero-content {
+                max-width: 100%;
+            }
+            .about {
+                flex-direction: column;
+            }
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full {
+                grid-column: span 1;
+            }
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-tooth"></i>
+            <div>
+                Dr. Malak Motaz
+                <span class="badge">Dental Clinic</span>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#about">عن الطبيبة</a></li>
+                <li><a href="#testimonials">آراء المرضى</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+        </nav>
+        <a href="#booking" class="btn-primary"><i class="fa-solid fa-calendar-check"></i> احجز موعدك</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>ابتسامتك المشرقة تبدأ هنا مع <span>Dr. Malak Motaz</span></h1>
+            <p>نقدم أحدث تقنيات طب وتجميل الأسنان بخبرة فائقة وعناية تامة تضمن لك راحة كاملة وابتسامة ساحرة وثقة لا توصف.</p>
+            <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                <a href="#booking" class="btn-primary">احجز كشفك الآن</a>
+                <a href="https://wa.me/201000000000" target="_blank" style="text-decoration: none; color: white; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-brands fa-whatsapp" style="color: #25d366; font-size: 1.3rem;"></i> تواصل معنا عبر واتساب
+                </a>
+            </div>
+            <div class="hero-badge-box">
+                <i class="fa-solid fa-face-smile" style="font-size: 2rem; color: var(--accent);"></i>
+                <div>
+                    <h4 style="margin: 0; font-size: 1rem;">أكثر من +1000 ابتسامة ناجحة</h4>
+                    <p style="margin: 0; font-size: 0.85rem; color: #cbd5e1;">رعاية احترافية وأجواء مريحة تماماً</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="section-title">
+            <h2>خدمات العيادة المتطورة</h2>
+            <p>نستعين بأحدث الأجهزة والتقنيات الطبية لضمان أفضل وأدق النتائج</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <h3>تبييض وتجميل الأسنان</h3>
+                <p>استمتع بابتسامة هوليوود الناصعة والبياض الطبيعي بأحدث تقنيات الليزر الآمنة تماماً على المينا.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-teeth"></i>
+                <h3>زراعة الأسنان</h3>
+                <p>تعويض الأسنان المفقودة بدقة متناهية وبأعلى خامات الزرع العالمية التي تدوم مدى الحياة.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-face-grin-stars"></i>
+                <h3>تقويم الأسنان</h3>
+                <p>حلول تقويمية متطورة (شفافة ومعدنية) لتعديل اصطفاف الأسنان وإعادة التناسق لابتسامتك.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-kit-medical"></i>
+                <h3>علاج جذور الأسنان</h3>
+                <p>إزالة آلام العصب بدقة وبدون ألم وبأحدث أجهزة الروتاري والتقنيات الحديثة.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-text">
+            <h2>Dr. Malak Motaz</h2>
+            <p>طبيبة أسنان شغوفة بتقديم رعاية طبية متكاملة وفقاً لأعلى معايير الجودة والنظافة العالمية. هدفنا الأول هو كسر رهبة عيادة الأسنان وجعل تجربتكم مريحة تماماً مع التركيز على الجانب الجمالي والصحي معاً.</p>
+            <div class="about-features">
+                <div class="feature-item"><i class="fa-solid fa-check-circle"></i> تعقيم فائق ومزدوج</div>
+                <div class="feature-item"><i class="fa-solid fa-check-circle"></i> أحدث الأجهزة العالمية</div>
+                <div class="feature-item"><i class="fa-solid fa-check-circle"></i> متابعة دورية مجانية</div>
+                <div class="feature-item"><i class="fa-solid fa-check-circle"></i> أسعار تنافسية وخيارات ميسرة</div>
+            </div>
+        </div>
+        <div class="about-img"></div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="section-title">
+            <h2>احجز موعدك أونلاين</h2>
+            <p>املأ البيانات وسنحولك مباشرة لإرسال تفاصيل حجزك عبر الواتساب</p>
+        </div>
+        <div class="booking-container">
+            <form class="booking-form" id="whatsappForm">
+                <div class="form-group">
+                    <label>الاسم الكامل</label>
+                    <input type="text" id="clientName" placeholder="اكتب اسمك هنا" required>
+                </div>
+                <div class="form-group">
+                    <label>رقم الهاتف</label>
+                    <input type="tel" id="clientPhone" placeholder="01xxxxxxxx" required>
+                </div>
+                <div class="form-group">
+                    <label>الخدمة المطلوبة</label>
+                    <select id="clientService">
+                        <option>تبييض وتجميل الأسنان</option>
+                        <option>زراعة الأسنان</option>
+                        <option>تقويم الأسنان</option>
+                        <option>علاج جذور وعصب</option>
+                        <option>كشف عام / تنظيف</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>اليوم المفضل للموعد</label>
+                    <input type="date" id="clientDate" required>
+                </div>
+                <div class="form-group full">
+                    <label>ملاحظات إضافية (اختياري)</label>
+                    <textarea id="clientNotes" rows="4" placeholder="اكتب أي أعراض أو تفاصيل تود إخبار الطبيبة بها..."></textarea>
+                </div>
+                <div class="form-group full" style="text-align: center; margin-top: 1rem;">
+                    <button type="submit" class="btn-primary" style="padding: 1rem 3rem; font-size: 1.1rem; width: 100%; justify-content: center; background: #25d366;">
+                        <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem;"></i> إرسال الحجز وتأكيد الموعد عبر الواتساب
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="section-title">
+            <h2>آراء مرضانا السعداء</h2>
+            <p>ماذا يقول من زاروا عيادة Dr. Malak Motaz وجربوا ابتسامة جديدة</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>"أفضل دكتورة أسنان تعاملت معها، يدها خفيفة جداً وما حسيت بأي ألم خلال جلسة حشو العصب. شكراً دكتورة ملك!"</p>
+                <div class="patient-info">- أحمد محمود</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>"العيادة نظيفة ومرتبة جداً والتعقيم ممتاز. عملت تبييض ونتيجة هوليوود بجد مبهرة. أنصح الكل بالزيارة."</p>
+                <div class="patient-info">- ساره عبد الله</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>"ذوق رفيع ومعاملة راقية جداً من الدكتورة وفريق العمل. شرحت لي كل خطوة بصبر والتزام بالوقت."</p>
+                <div class="patient-info">- محمود إبراهيم</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/201000000000" target="_blank" class="whatsapp-float" title="تواصل معنا عبر واتساب">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fa-solid fa-tooth"></i> Dr. Malak Motaz Dental Clinic
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/201000000000" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>جميع الحقوق محفوظة &copy; 2026 | Dr. Malak Motaz - Dental Clinic</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script to format and send booking data directly to WhatsApp
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // استبدل الرقم أدناه برقم الواتساب الخاص بك (متبوعاً بكود الدولة بدون علامة +، مثلاً مصر: 201xxxxxxxxx)
+            const doctorPhoneNumber = "201061564123"; 
+
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const service = document.getElementById('clientService').value;
+            const date = document.getElementById('clientDate').value;
+            const notes = document.getElementById('clientNotes').value || "لا توجد ملاحظات";
+
+            // صياغة رسالة الواتساب المرتبة
+            const message = `مرحباً د. ملك معتز، أرغب في حجز موعد جديد بالعيادة:%0a` +
+                            `--------------------------------%0a` +
+                            `👤 الاسم: ${name}%0a` +
+                            `📱 رقم الهاتف: ${phone}%0a` +
+                            `🦷 الخدمة المطلوبة: ${service}%0a` +
+                            `📅 اليوم الحجز: ${date}%0a` +
+                            `📝 ملاحظات: ${notes}%0a` +
+                            `--------------------------------%0a` +
+                            `في انتظار تأكيد الموعد، شكراً جزيلاً!`;
+
+            // فتح تطبيق الواتساب أو واتساب ويب بالرسالة الجاهزة
+            const whatsappURL = `https://wa.me/${doctorPhoneNumber}?text=${message}`;
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+
+</body>
+</html>
